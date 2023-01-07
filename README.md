@@ -1,6 +1,18 @@
 # bitLogger
 This is a simple logger implementation for [BitBurner](https://danielyxie.github.io/bitburner/) a in-brow.ser game where you need to code javascript in order to automate tasks.
 
+## Install / use
+Download the script into your home folder:
+````
+$BitBurnerTerminal> wget https://github.com/p3t/bitLogger/blob/main/logger.js
+````
+Use it in your scripts:
+````javascript
+import {newLogger} from 'logger.js'
+// ...
+````
+
+
 ## Example usage:
 ````javascript
 import {newLogger} from 'logger.js'
