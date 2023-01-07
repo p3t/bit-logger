@@ -33,6 +33,9 @@ export async function main(ns) {
 }
 ````
 
-## Output will be:
+## Example output
 
 <img width="642" alt="example" src="https://user-images.githubusercontent.com/3204560/211153346-a8517616-a2b9-41fb-84c8-78d2c2ce5381.png">
+
+## Credits
+Many thanks to @talyian for the nice [color list](https://talyian.github.io/ansicolors/)
