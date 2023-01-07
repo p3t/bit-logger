@@ -1,5 +1,5 @@
 # bitLogger
-This is a simple logger implementation for [BitBurner](https://danielyxie.github.io/bitburner/) a in-brow.ser game where you need to code javascript in order to automate tasks.
+This is a simple logger implementation for [BitBurner](https://danielyxie.github.io/bitburner/) an in-browser/steam game where you need to code javascript in order to automate tasks.
 
 ## Install / use
 Download the script into your home folder:
