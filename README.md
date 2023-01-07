@@ -3,6 +3,8 @@ This is a simple logger implementation for [BitBurner](https://danielyxie.github
 
 ## Example usage:
 ````javascript
+import {newLogger} from 'logger.js'
+
 export async function main(ns) {
 	ns.tail()
 	let logger = newLogger(ns)
