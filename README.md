@@ -17,9 +17,11 @@ import {newLogger} from 'logger.js'
 ````javascript
 import {newLogger} from 'logger.js'
 
+var logger
+
 export async function main(ns) {
 	ns.tail()
-	let logger = newLogger(ns)
+	logger = newLogger(ns)
 
 	logger.debug("logger.debug %s", ns.getPlayer().money)
 	logger.info("logger.info => player.money = %s", ns.getPlayer().money)
