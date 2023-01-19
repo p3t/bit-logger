@@ -23,11 +23,12 @@ export const COLOR = {
 	RESET: "\u001B[0m"
 }
 
+var logger
 
 /** @param {NS} ns */
 export async function main(ns) {
 	ns.tail()
-	let logger = newLogger(ns)
+	logger = newLogger(ns)
 
 	logger.debug("logger.debug inBladeburner: %s", ns.getPlayer().inBladeburner)
 	logger.info("logger.info => player.money = %s", ns.getPlayer().money)
@@ -38,9 +39,18 @@ export async function main(ns) {
 	let log = logger.name("main")
 
 	log.debug("I can log objects: %s", { some: "value", other: { more: true, complex: 1e2 }})
+
+	let log2 = logger.name("main").name("entity-name");
+	log2.isTrace = true
+	log2.trace("Names can be stacked!")
 }
 
-/** @param {NS} ns */
+/** 
+ * @param {NS}.     ns 
+ * @param {string}  [logName=""]    Optional logger name (usually -> name() is used later)
+ * @param {boolean} [isDebug=true]  debug log message enabled/disabled
+ * @param {boolean} [isTrace=false] trace log messages enabled/disabled
+ */
 export function newLogger(ns, logName = "", isDebug = true, isTrace = false) {
 	return ({
 		isDebug: isDebug,
@@ -66,7 +76,7 @@ export function newLogger(ns, logName = "", isDebug = true, isTrace = false) {
 			ns.printf( this.msg(level,message), ...this.push(color, this.convert(args)))
 		},
 		name(withName) {
-			return newLogger(ns, withName, this.isDebug, this.isTrace)
+			return newLogger(ns, (this.logName !== "" ? this.logName + "|" + withName : withName), this.isDebug, this.isTrace)
 		},
 		msg(level, message) {
 			let levelStr = ns.sprintf("%-7s", `[${level}]`)
